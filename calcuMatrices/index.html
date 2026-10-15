@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de matrices</title>
+  <link rel="icon" href="favicon.jpg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <h1>Calculadora de matrices</h1>
+      <p>Acepta enteros, decimales y fracciones (<code>3/4</code>, <code>-2/5</code>, <code>1.25</code>). Los resultados se mantienen como fracciones exactas.</p>
+    </header>
+
+    <section class="panel controls">
+      <label>Operación
+        <select id="op">
+          <option value="transpose">Matriz transpuesta</option>
+          <option value="main">Diagonal principal</option>
+          <option value="sec">Diagonal secundaria</option>
+          <option value="add">Suma de matrices (A + B)</option>
+          <option value="mul">Multiplicación (A × B)</option>
+        </select>
+      </label>
+      <label class="check" id="optSum"><input type="checkbox" id="showSum"> Calcular suma de la diagonal</label>
+      <label class="check" id="optSteps"><input type="checkbox" id="showSteps"> Mostrar procedimiento</label>
+      <div class="buttons">
+        <button id="calc" class="primary">Calcular</button>
+        <button id="random">Llenar al azar</button>
+        <button id="clear">Limpiar campos</button>
+        <button id="reset">Reiniciar</button>
+      </div>
+    </section>
+
+    <div class="inputs">
+      <section class="panel" id="cardA">
+        <h2>Matriz A</h2>
+        <div class="dims">
+          <label>Filas <input type="number" id="rowsA" min="1" max="10" value="2"></label>
+          <label>Columnas <input type="number" id="colsA" min="1" max="10" value="2"></label>
+        </div>
+        <div class="scroll"><div class="matrix" id="gridA"></div></div>
+      </section>
+
+      <section class="panel" id="cardB" hidden>
+        <h2>Matriz B</h2>
+        <div class="dims">
+          <label>Filas <input type="number" id="rowsB" min="1" max="10" value="2"></label>
+          <label>Columnas <input type="number" id="colsB" min="1" max="10" value="2"></label>
+        </div>
+        <div class="scroll"><div class="matrix" id="gridB"></div></div>
+      </section>
+    </div>
+
+    <section class="panel result" id="resultPanel" aria-live="polite">
+      <h2>Resultado</h2>
+      <div id="result"><p class="muted">Introduce tus matrices y pulsa «Calcular».</p></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
